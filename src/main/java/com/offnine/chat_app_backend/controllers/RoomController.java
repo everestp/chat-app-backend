@@ -14,6 +14,8 @@ import com.offnine.chat_app_backend.ChatAppBackendApplication;
 import com.offnine.chat_app_backend.Repo.RoomRepo;
 import com.offnine.chat_app_backend.entities.Message;
 import com.offnine.chat_app_backend.entities.Room;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api/v1/rooms")
+@CrossOrigin("*")
 public class RoomController {
 
 
