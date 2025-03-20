@@ -1,8 +1,9 @@
 package com.offnine.chat_app_backend.config;
 
+
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
-import org.springframework.messaging.simp.stomp.StompBrokerRelayMessageHandler;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
@@ -11,19 +12,25 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 @EnableWebSocketMessageBroker
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
+
     @Override
-    public void configureMessageBroker(MessageBrokerRegistry config){
-config.enableSimpleBroker("/topic");
-config.setApplicationDestinationPrefixes("/app");
+    public void configureMessageBroker(MessageBrokerRegistry config) {
+
+        config.enableSimpleBroker("/topic");
+        // /topic/messages
+
+        config.setApplicationDestinationPrefixes("/app");
+        // /app/chat
+        // server-side: @MessagingMapping("/chat)
+
+
     }
 
     @Override
-     public void registerStompEndpoints(StompEndpointRegistry registry){
- registry.addEndpoint("/chats")  // connect established
- .setAllowedOrigins("http://localhost:3000")
- .withSockJS();
-
-     }
-   // chat enpint ma connection established hunxa
-
+    public void registerStompEndpoints(StompEndpointRegistry registry) {
+        registry.addEndpoint("/chat")//connection establishment
+                .setAllowedOrigins("*")
+                .withSockJS();
+    }
+    // /chat endpoint par connection apka establish hoga
 }
