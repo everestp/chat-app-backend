@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   boot-app:
-    image: everestp/chat-app-backend01
+    image: everestp/chat-app-backend000
     build:
       context: .
       dockerfile: Dockerfile
