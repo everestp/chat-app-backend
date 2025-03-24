@@ -40,7 +40,7 @@ if(roomRepo.findByRoomId(roomid)!=null){
    Room room = new Room();
    room.setRoomId(roomid);
 Room savedRoom = roomRepo.save(room);
-     return ResponseEntity.status(HttpStatus.CREATED).body(room);
+     return ResponseEntity.status(HttpStatus.CREATED).body(savedRoom);
 }
 
 

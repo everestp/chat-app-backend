@@ -7,6 +7,7 @@ import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import com.offnine.chat_app_backend.ChatAppBackendApplication;
 import com.offnine.chat_app_backend.Repo.RoomRepo;
@@ -26,7 +27,6 @@ public class ChatController {
 
 
  // for sending and receivintg messsage
-
  @MessageMapping("/sendMessage/{roomId}")
  @SendTo("/topic/room/{roomId}")  // subscibe the message by ckient
  public Message sendMessage(
