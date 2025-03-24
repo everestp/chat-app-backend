@@ -7,9 +7,10 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      - SPRING_DATA_MONGODB_URI = mongodb+srv://everestp:1234@cluster0.0yp4r.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      - SPRING_DATA_MONGODB_URI=mongodb+srv://everestp:1234@cluster0.0yp4r.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      - SPRING_DATA_MONGODB_DATABASE=chatapp
     networks:
       - app-network
 
 networks:
-  app-network:  # ✅ Make sure this is present at the bottom
+  app-network:
