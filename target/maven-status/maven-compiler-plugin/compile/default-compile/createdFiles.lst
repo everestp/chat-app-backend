@@ -1,8 +1,0 @@
-com\offnine\chat_app_backend\controllers\RoomController.class
-com\offnine\chat_app_backend\entities\Room.class
-com\offnine\chat_app_backend\config\WebSocketConfig.class
-com\offnine\chat_app_backend\ChatAppBackendApplication.class
-com\offnine\chat_app_backend\controllers\ChatController.class
-com\offnine\chat_app_backend\Repo\RoomRepo.class
-com\offnine\chat_app_backend\entities\Message.class
-com\offnine\chat_app_backend\Requests\MessageRequest.class

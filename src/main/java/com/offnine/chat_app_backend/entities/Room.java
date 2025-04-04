@@ -1,29 +1,25 @@
 package com.offnine.chat_app_backend.entities;
 
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-
+import jakarta.persistence.*;
+import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Document(collection = "rooms")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
+@Entity
+@Table(name = "room")
 public class Room {
     @Id
-    private String id;//Mongo db : unique identifier
+    @GeneratedValue(strategy = GenerationType.UUID)  // Changed to UUID for String ID
+    @Column(columnDefinition = "VARCHAR(36)")  // Explicit column definition for UUID
+    private String id;
+    
+    @Column(unique = true)
     private String roomId;
+    
+    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Message> messages = new ArrayList<>();
-
-
 }
-

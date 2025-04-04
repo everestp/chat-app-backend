@@ -1,16 +1,34 @@
 version: '3.8'
 
 services:
+  mysql:
+    image: mysql:8
+    container_name: mysql-container
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "3149"
+      MYSQL_DATABASE: "chat"
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+    networks:
+      - app-network
+
   boot-app:
-    image: everestp/chat-app-backend000
+    image: everestp/chatapp
+    container_name: chat-app-container
     build:
       context: .
       dockerfile: Dockerfile
+    depends_on:
+      - mysql
     environment:
-      - SPRING_DATA_MONGODB_URI=mongodb+srv://everestp:1234@cluster0.0yp4r.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-      - SPRING_DATA_MONGODB_DATABASE=chatapp
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/chat
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: "3149"
     networks:
       - app-network
 
 networks:
   app-network:
+    driver: bridge

@@ -1,8 +1,10 @@
-FROM amd64/openjdk:21-jdk-slim
+FROM maven:3-eclipse-temurin-17
+COPY . .
+RUN mvn clean package -DskipTests
+FROM eclipse-temurin:17-alpine
+COPY --from=build /target/*.jar demo.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "demo.jar"]
 
-WORKDIR /app
 
-COPY target/chat-app-backend-0.0.1-SNAPSHOT.jar app.jar
 
- EXPOSE 8080
-ENTRYPOINT [ "java","-jar","app.jar"]

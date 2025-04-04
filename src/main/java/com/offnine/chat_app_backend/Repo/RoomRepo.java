@@ -1,16 +1,15 @@
 package com.offnine.chat_app_backend.Repo;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-import org.springframework.stereotype.Repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
 
 import com.offnine.chat_app_backend.entities.Room;
-import java.util.List;
-import java.util.Optional;
 
 
-@Repository
-public interface RoomRepo extends MongoRepository<Room,String>{
+
+
+public interface RoomRepo extends  JpaRepository<Room,String>{
 
     // get  room using room id
   Room  findByRoomId(String roomId);

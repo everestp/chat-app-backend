@@ -16,6 +16,7 @@ import com.offnine.chat_app_backend.entities.Message;
 import com.offnine.chat_app_backend.entities.Room;
 
 @Controller
+@Service
 public class ChatController {
 
 
