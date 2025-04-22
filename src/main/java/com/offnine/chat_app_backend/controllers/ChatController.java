@@ -8,8 +8,9 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
-import com.offnine.chat_app_backend.ChatAppBackendApplication;
+
 import com.offnine.chat_app_backend.Repo.RoomRepo;
 import com.offnine.chat_app_backend.Requests.MessageRequest;
 import com.offnine.chat_app_backend.entities.Message;
@@ -17,6 +18,7 @@ import com.offnine.chat_app_backend.entities.Room;
 
 @Controller
 @Service
+@CrossOrigin("*")
 public class ChatController {
 
 

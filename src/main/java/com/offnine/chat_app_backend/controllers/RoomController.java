@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api/v1/rooms")
-@CrossOrigin("https://chat-app-frontend-kohl-three.vercel.app/")
+@CrossOrigin("*")
 public class RoomController {
 
 
